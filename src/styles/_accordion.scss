@@ -5,7 +5,7 @@
     width: 512px;
   }
   @media (max-width: 375px) {
-    width: 75%;
+    width: 80%;
   }
 
   display: flex;
@@ -40,13 +40,22 @@
   }
 
   .accordion-row {
+    p {
+      overflow: hidden;
+      height: 0px;
+      margin: 0px;
+      transition:
+        height 0.5s ease-out,
+        margin 0.5s ease-out;
+    }
+
     .accordion-row-title {
       display: flex;
       align-content: center;
       justify-content: space-between;
 
       h2 {
-        padding-right: 32px;
+        padding-right: 20px;
         font-size: 16px;
         color: colors.$DarkPurple;
       }
@@ -61,7 +70,6 @@
         padding: 0;
         margin: 0;
         border: 0;
-        border-radius: 50%;
         background-color: colors.$White;
         cursor: pointer;
 
@@ -73,7 +81,6 @@
     }
     .accordion-row-description {
       color: colors.$GrayishPurple;
-      display: none;
     }
   }
 
@@ -82,7 +89,7 @@
     height: 1px;
     min-height: 1px;
     width: 100%;
-    margin-top: 24px;
-    margin-bottom: 8px;
+    margin-top: 16px;
+    margin-bottom: 16px;
   }
 }

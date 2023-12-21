@@ -5,3 +5,11 @@ export function toggleButton(button: HTMLImageElement): void {
     button.src = '../../assets/images/icon-plus.svg';
   }
 }
+
+export function toggleExpanded(button: HTMLButtonElement): void {
+  if (button.ariaExpanded === 'true') {
+    button.ariaExpanded = 'false';
+  } else {
+    button.ariaExpanded = 'true';
+  }
+}
