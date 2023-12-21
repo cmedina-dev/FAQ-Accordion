@@ -16,15 +16,17 @@ document
 document.getElementById('accordion-card')?.addEventListener('click', e => {
   if (e.target) {
     const element = e.target as Element;
+    let btn;
     if (
       element.tagName === 'IMG' &&
       element.parentNode?.nodeName === 'BUTTON'
     ) {
-      const btn = element.parentNode as HTMLButtonElement;
-      handleButtonPress(btn);
+      btn = element.parentNode as HTMLButtonElement;
     } else if (element.tagName === 'BUTTON') {
-      const btn = element as HTMLButtonElement;
-      handleButtonPress(btn);
+      btn = element as HTMLButtonElement;
+    } else if (element.tagName === 'H2') {
+      btn = element.nextElementSibling as HTMLButtonElement;
     }
+    handleButtonPress(btn);
   }
 });

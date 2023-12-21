@@ -12,12 +12,14 @@ function toggleVisibility(paragraph: HTMLParagraphElement): void {
   }
 }
 
-export function handleButtonPress(button: HTMLButtonElement): void {
-  const controlledDescription = document.getElementById(
-    button.getAttribute('aria-controls') as string
-  ) as HTMLParagraphElement;
-  const buttonImage = button.firstChild?.nextSibling as HTMLImageElement;
-  toggleButton(buttonImage);
-  toggleExpanded(button);
-  toggleVisibility(controlledDescription);
+export function handleButtonPress(button: HTMLButtonElement | undefined): void {
+  if (button) {
+    const controlledDescription = document.getElementById(
+      button.getAttribute('aria-controls') as string
+    ) as HTMLParagraphElement;
+    const buttonImage = button.firstChild?.nextSibling as HTMLImageElement;
+    toggleButton(buttonImage);
+    toggleExpanded(button);
+    toggleVisibility(controlledDescription);
+  }
 }
