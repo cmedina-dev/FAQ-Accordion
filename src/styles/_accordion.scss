@@ -1,0 +1,88 @@
+@use 'colors';
+
+#accordion-card {
+  @media (min-width: 376px) {
+    width: 512px;
+  }
+  @media (max-width: 375px) {
+    width: 75%;
+  }
+
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  background-color: colors.$White;
+  font-size: 16px;
+  width: 512px;
+  border-radius: 4%;
+
+  #accordion-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    h1 {
+      @media (min-width: 376px) {
+        font-size: 48px;
+      }
+      @media (max-width: 375px) {
+        font-size: 32px;
+      }
+
+      padding-left: 16px;
+    }
+
+    img {
+      @media (max-width: 375px) {
+        width: 24px;
+      }
+    }
+  }
+
+  .accordion-row {
+    .accordion-row-title {
+      display: flex;
+      align-content: center;
+      justify-content: space-between;
+
+      h2 {
+        padding-right: 32px;
+        font-size: 16px;
+        color: colors.$DarkPurple;
+      }
+
+      button {
+        width: 30px;
+        height: 30px;
+        align-self: center;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        padding: 0;
+        margin: 0;
+        border: 0;
+        border-radius: 50%;
+        background-color: colors.$White;
+        cursor: pointer;
+
+        img {
+          width: 30px;
+          height: 30px;
+        }
+      }
+    }
+    .accordion-row-description {
+      color: colors.$GrayishPurple;
+      display: none;
+    }
+  }
+
+  .accordion-divider {
+    background-color: colors.$LightPink;
+    height: 1px;
+    min-height: 1px;
+    width: 100%;
+    margin-top: 24px;
+    margin-bottom: 8px;
+  }
+}
