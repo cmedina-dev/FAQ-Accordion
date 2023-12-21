@@ -29,6 +29,7 @@
         font-size: 32px;
       }
 
+      font-weight: 700;
       padding-left: 16px;
     }
 
@@ -58,6 +59,7 @@
         padding-right: 20px;
         font-size: 16px;
         color: colors.$DarkPurple;
+        font-weight: 600;
       }
 
       button {
@@ -84,6 +86,7 @@
     }
     .accordion-row-description {
       color: colors.$GrayishPurple;
+      font-weight: 400;
     }
   }
 
