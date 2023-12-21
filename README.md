@@ -14,9 +14,6 @@ This is a solution to the [FAQ accordion challenge on Frontend Mentor](https://w
   - [Continued development](#continued-development)
   - [Useful resources](#useful-resources)
 - [Author](#author)
-- [Acknowledgments](#acknowledgments)
-
-**Note: Delete this note and update the table of contents based on what sections you keep.**
 
 ## Overview
 
@@ -60,13 +57,10 @@ document.getElementById('accordion-card')?.addEventListener('click', e => {
       element.parentNode?.nodeName === 'BUTTON'
     ) {
       const btn = element.parentNode as HTMLButtonElement;
-      const controlledDescription = document.getElementById(
-        btn.getAttribute('aria-controls') as string
-      ) as HTMLParagraphElement;
-      const btnImage = element as HTMLImageElement;
-      toggleButton(btnImage);
-      toggleExpanded(btn);
-      toggleVisibility(controlledDescription);
+      handleButtonPress(btn);
+    } else if (element.tagName === 'BUTTON') {
+      const btn = element as HTMLButtonElement;
+      handleButtonPress(btn);
     }
   }
 });
