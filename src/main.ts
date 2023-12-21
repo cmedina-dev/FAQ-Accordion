@@ -1,6 +1,17 @@
-import { toggleVisibility } from './accordion';
-import { toggleButton, toggleExpanded } from './button';
+import { handleButtonPress } from './accordion';
+import { checkInput, resetInput } from './keyboard';
 import './styles/styles.scss';
+
+document.getElementById('accordion-card')?.addEventListener('keydown', e => {
+  if (e.key === ' ' || e.key === 'Enter') {
+    e.preventDefault();
+    checkInput(e);
+  }
+});
+
+document
+  .getElementById('accordion-card')
+  ?.addEventListener('keyup', e => resetInput());
 
 document.getElementById('accordion-card')?.addEventListener('click', e => {
   if (e.target) {
@@ -10,13 +21,10 @@ document.getElementById('accordion-card')?.addEventListener('click', e => {
       element.parentNode?.nodeName === 'BUTTON'
     ) {
       const btn = element.parentNode as HTMLButtonElement;
-      const controlledDescription = document.getElementById(
-        btn.getAttribute('aria-controls') as string
-      ) as HTMLParagraphElement;
-      const btnImage = element as HTMLImageElement;
-      toggleButton(btnImage);
-      toggleExpanded(btn);
-      toggleVisibility(controlledDescription);
+      handleButtonPress(btn);
+    } else if (element.tagName === 'BUTTON') {
+      const btn = element as HTMLButtonElement;
+      handleButtonPress(btn);
     }
   }
 });
